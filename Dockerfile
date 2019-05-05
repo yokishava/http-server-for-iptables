@@ -1,9 +1,9 @@
 FROM golang:latest
 
-WORKDIR /go/src/github.com/wakasiyo/http-server-for-iptables
+ADD . /go/src/httpserver
 
-COPY . .
+WORKDIR /go/src/httpserver
 
-RUN go install github.com/wakashiyo/http-server-for-iptables
+RUN go install
 
-ENTRYPOINT [ "http-server-for-iptables" ]
+ENTRYPOINT [ "/go/bin/httpserver" ]
